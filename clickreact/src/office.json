@@ -1,0 +1,7 @@
+[
+    {
+        "name": "Dwight Schrute",
+        "image": "./images/dwight.jpeg",
+        "clicked": false
+    }
+]
