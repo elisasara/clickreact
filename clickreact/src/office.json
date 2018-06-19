@@ -1,7 +1,73 @@
 [
     {
-        "name": "Dwight Schrute",
+        "name": "Dwight",
         "image": "./images/dwight.jpeg",
+        "clicked": false
+    },
+
+    {
+        "name": "Michael",
+        "image": "./images/michael.jpeg",
+        "clicked": false
+    },
+
+    {
+        "name": "Jim",
+        "image": "./images/jim.jpg",
+        "clicked": false
+    },
+
+    {
+        "name": "Pam",
+        "image": "./images/pam.png",
+        "clicked": false
+    },
+
+    {
+        "name": "Andy",
+        "image": "./images/andy.jpg",
+        "clicked": false
+    },
+
+    {
+        "name": "Angela",
+        "image": "./images/angela.jpg",
+        "clicked": false
+    },
+
+    {
+        "name": "Kelly",
+        "image": "./images/kelly.jpg",
+        "clicked": false
+    },
+
+    {
+        "name": "Oscar",
+        "image": "./images/oscar.jpg",
+        "clicked": false
+    },
+
+    {
+        "name": "Ryan",
+        "image": "./images/ryan.jpg",
+        "clicked": false
+    },
+
+    {
+        "name": "Stanley",
+        "image": "./images/stanley.jpg",
+        "clicked": false
+    },
+
+    {
+        "name": "Toby",
+        "image": "./images/toby.jpg",
+        "clicked": false
+    },
+
+    {
+        "name": "Phyllis",
+        "image": "./images/phyllis.jpg",
         "clicked": false
     }
 ]
