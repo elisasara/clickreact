@@ -1,8 +1,8 @@
 import React from "react";
 
 
-const GameBoard = () => (
-<div className="container"></div>
+const GameBoard = props => (
+<div className="container">{props.children}</div>
 );
 
 

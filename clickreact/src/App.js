@@ -24,8 +24,8 @@ class App extends React.Component {
 
   shuffleChar = () => {
     const charArray = this.state.office;
-    charArray.sort(function(a,b){
-      return 0.5-Math.random();
+    charArray.sort(function (a, b) {
+      return 0.5 - Math.random();
     });
     this.setState({
       characters: charArray
@@ -39,13 +39,13 @@ class App extends React.Component {
         <Header />
         <Jumbotron />
         <GameBoard>
-        {this.state.characters.map(character => (
-          <Character
-            key={character.name}
-            image={character.image}
-            name={character.name}
-          />
-        ))}
+          {this.state.characters.map(character => (
+            <Character
+              key={character.name}
+              image={character.image}
+              name={character.name}
+            />
+          ))}
         </GameBoard>
       </div>
     );
