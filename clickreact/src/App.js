@@ -19,11 +19,11 @@ class App extends React.Component {
     // if false, change to true
     // add a point to the counter
     // if counter is higher than highscore then add a point to high score
-    // call shuffleChar function
+    // call this.shuffleChar() function
   };
 
   shuffleChar = () => {
-    const charArray = this.state.office;
+    const charArray = this.state.characters;
     charArray.sort(function (a, b) {
       return 0.5 - Math.random();
     });
@@ -44,6 +44,7 @@ class App extends React.Component {
               key={character.name}
               image={character.image}
               name={character.name}
+              shuffleChar={this.shuffleChar}
             />
           ))}
         </GameBoard>
