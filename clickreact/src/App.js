@@ -3,29 +3,50 @@ import office from "./office.json";
 import Header from "./components/Header";
 import Jumbotron from "./components/Jumbotron";
 import './App.css';
-// import GameBoard from "./components/GameBoard";
+import GameBoard from "./components/GameBoard";
 import Character from "./components/Character";
 
 class App extends React.Component {
   state = {
-    office
+    characters: office,
+    counter: 0,
+    highScore: 0
   }
+
+  handleClick = (event) => {
+    // check to see if this.state.characters.clicked = true
+    // if true, game over
+    // if false, change to true
+    // add a point to the counter
+    // if counter is higher than highscore then add a point to high score
+    // call shuffleChar function
+  };
+
+  shuffleChar = () => {
+    const charArray = this.state.office;
+    charArray.sort(function(a,b){
+      return 0.5-Math.random();
+    });
+    this.setState({
+      characters: charArray
+    });
+  };
+
   render() {
-    // const char =  this.state.office.map(character => {
-    //   <Character key={character.name} src={character.image} alt={character.name} />
-    // });
-    console.log(this.state.office);
+    console.log(this.state.characters);
     return (
       <div>
         <Header />
         <Jumbotron />
-        {this.state.office.map(character => (
+        <GameBoard>
+        {this.state.characters.map(character => (
           <Character
             key={character.name}
-            src={character.image}
-            alt={character.name}
+            image={character.image}
+            name={character.name}
           />
         ))}
+        </GameBoard>
       </div>
     );
   }
