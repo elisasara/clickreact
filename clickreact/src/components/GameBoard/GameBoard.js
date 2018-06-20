@@ -23,12 +23,7 @@ class GameBoard extends React.Component {
 
     render() {
         return (
-            <div className="col-md-4">
-
-                {/* {this.state.office.map(character =>{
-                <Character src={this.state.office.image} />
-                })
-                } */}
+            <div className="container">
             </div>
         )
     }
