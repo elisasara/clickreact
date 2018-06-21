@@ -10,8 +10,11 @@ class App extends React.Component {
   state = {
     characters: office,
     counter: 0,
-    highScore: 0
+    highScore: 0,
+    message: "Click an image to begin"
   }
+
+  // pass correct header text and counter to header component
 
   handleClick = (name) => {
     const char = this.state.characters.find(chosen => chosen.name === name);
@@ -19,36 +22,52 @@ class App extends React.Component {
     // check to see if this.state.characters.clicked = true
     // if true, game over
     if (char.clicked) {
-      // return component for game over
+      // set header to say "You guessed wrong. You lose!"
       // reset all characters to clicked: false
+      this.resetClick();
       // reset counter to 0
+      this.resetCounter();
       // DO NOT RESET HGH SCORE
     }
     // if false, change to true
     else {
+      // set header to say "You guessed correctly! Keep going!"
       // set char.clicked to true
       char.clicked = true;
-      // add a point to the counter
-      if (this.state.counter === this.state.highScore) {
-        this.setState({
-          counter: this.state.counter + 1,
-          highScore: this.state.highScore + 1
-        });
-      }
-      else {
-        this.setState({
-          counter: this.state.counter + 1
-        });
-      };
-      // console.log("clicked: ", char.clicked);
-      console.log("State:", this.state);  
-      // if counter is higher than highscore then add a point to high score
-      // call this.shuffleChar() function
+      // update counter
+      this.updateCounter();
+    };
+    this.shuffleChar();
+  };
+
+  updateCounter = () => {
+    if (this.state.counter === this.state.highScore) {
+      this.setState({
+        counter: this.state.counter + 1,
+        highScore: this.state.highScore + 1
+      });
+      console.log("State:", this.state);
+    }
+    else {
+      this.setState({
+        counter: this.state.counter + 1
+      });
+      console.log("State:", this.state);
     };
   };
 
-  resetClick = () => {
+  resetCounter = () => {
+    this.setState({
+      counter: 0
+    });
+  };
 
+  resetClick = () => {
+    // for each in friends array change clicked to false
+    this.state.characters.forEach(character => {
+      character.clicked = false
+    });
+    console.log(this.state.characters);
   }
 
   shuffleChar = () => {
@@ -65,7 +84,10 @@ class App extends React.Component {
     console.log(this.state.characters);
     return (
       <div>
-        <Header />
+        <Header
+        text={this.state.message}
+        counter={this.state.counter}
+        highScore={this.state.highScore} />
         <Jumbotron />
         <GameBoard>
           {this.state.characters.map(character => (
@@ -73,7 +95,7 @@ class App extends React.Component {
               key={character.name}
               image={character.image}
               name={character.name}
-              shuffleChar={this.handleClick}
+              handleClick={this.handleClick}
             />
           ))}
         </GameBoard>
