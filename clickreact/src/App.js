@@ -25,7 +25,7 @@ class App extends React.Component {
       // reset all characters to clicked: false
       this.resetClick();
       // reset counter to 0 and update message in header
-      this.resetGame();
+      this.resetLostGame();
     }
 
     // if false, change to true
@@ -48,6 +48,16 @@ class App extends React.Component {
         message: "Correct! Keep Going!"
       });
     }
+
+    // if the counter is at 11 and will be going to 12 display a winning message
+    if (this.state.counter === 11) {
+      this.setState({
+        counter: 0,
+        highScore: this.state.highScore +1,
+        message: "You won! Click a character to start a new game!"
+      });
+      this.resetClick();
+    }
     // otherwise just update the counter
     else {
       this.setState({
@@ -57,7 +67,7 @@ class App extends React.Component {
     };
   };
 
-  resetGame = () => {
+  resetLostGame = () => {
     this.setState({
       counter: 0,
       message: "You guessed wrong. You lose!"
