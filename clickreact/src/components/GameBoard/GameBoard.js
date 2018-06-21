@@ -1,8 +1,9 @@
 import React from "react";
+import "./GameBoard.css";
 
 
 const GameBoard = props => (
-<div className="container">{props.children}</div>
+<div className="container text-center">{props.children}</div>
 );
 
 
