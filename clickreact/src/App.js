@@ -18,17 +18,16 @@ class App extends React.Component {
 
   handleClick = (name) => {
     const char = this.state.characters.find(chosen => chosen.name === name);
-    console.log("Char: ", char);
+
     // check to see if this.state.characters.clicked = true
     // if true, game over
     if (char.clicked) {
-      // set header to say "You guessed wrong. You lose!"
       // reset all characters to clicked: false
       this.resetClick();
-      // reset counter to 0
-      this.resetCounter();
-      // DO NOT RESET HGH SCORE
+      // reset counter to 0 and update message in header
+      this.resetGame();
     }
+
     // if false, change to true
     else {
       // set header to say "You guessed correctly! Keep going!"
@@ -41,34 +40,35 @@ class App extends React.Component {
   };
 
   updateCounter = () => {
+    // if the counter is equal to the high score then update the high score as well
     if (this.state.counter === this.state.highScore) {
       this.setState({
         counter: this.state.counter + 1,
-        highScore: this.state.highScore + 1
+        highScore: this.state.highScore + 1,
+        message: "Correct! Keep Going!"
       });
-      console.log("State:", this.state);
     }
+    // otherwise just update the counter
     else {
       this.setState({
-        counter: this.state.counter + 1
+        counter: this.state.counter + 1,
+        message: "Correct! Keep Going!"
       });
-      console.log("State:", this.state);
     };
   };
 
-  resetCounter = () => {
+  resetGame = () => {
     this.setState({
-      counter: 0
+      counter: 0,
+      message: "You guessed wrong. You lose!"
     });
   };
 
   resetClick = () => {
-    // for each in friends array change clicked to false
     this.state.characters.forEach(character => {
       character.clicked = false
     });
-    console.log(this.state.characters);
-  }
+  };
 
   shuffleChar = () => {
     const charArray = this.state.characters;
@@ -81,7 +81,6 @@ class App extends React.Component {
   };
 
   render() {
-    console.log(this.state.characters);
     return (
       <div>
         <Header

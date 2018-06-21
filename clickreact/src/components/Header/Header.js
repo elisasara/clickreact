@@ -1,5 +1,4 @@
 import React from "react";
-import Counter from "../Counter";
 
 
 // update this to receive props to change text based on each click!!
