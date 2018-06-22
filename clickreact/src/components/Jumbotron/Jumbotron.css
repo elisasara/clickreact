@@ -1,6 +1,11 @@
-img {
+#painting {
     max-height: 200px;
     margin-bottom: 10px
+}
+
+#reactLogo {
+    max-height: 50px;
+    display: inline
 }
 
 .jumbotron {
