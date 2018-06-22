@@ -4,14 +4,18 @@
 }
 
 #reactLogo {
-    max-height: 50px;
-    display: inline
+    max-height: 18px;
 }
 
 .jumbotron {
     background-color: black;
     color: white;
-    max-height: 400px
+    max-height: 430px
+}
+
+p {
+    margin-bottom: 0px;
+    font-size: 12px;
 }
 
 h1 {
